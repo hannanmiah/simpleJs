@@ -1,3 +1,48 @@
-.test {
-    font-family: Fira Code;
+.box1 {
+    width: 400px;
+    margin: 5px auto;
+    border: 1px solid green;
+    border-radius: 10px;
+}
+
+.box2 {
+    display: none;
+    width: 400px;
+    margin: 5px auto;
+    border: 1px solid #f3af1b;
+    border-radius: 10px;
+}
+.inp1 {
+    display: block;
+    margin: 5px auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.inp2 {
+    display: block;
+    padding: 5px;
+    margin: 5px auto;
+    border: 1px solid #ddd;
+}
+
+.label {
+    margin: 5px auto;
+    display: block;
+}
+
+button {
+    margin: 5px 10px;
+    padding: 5px;
+    background-color: aqua;
+    border: none;
+}
+
+#btn3 {
+    border: 1px solid black;
+    display: none;
+}
+
+.wrapper {
+    text-align: center;
 }
