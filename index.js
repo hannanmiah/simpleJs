@@ -6,13 +6,19 @@ let resultText = sampleText;
 
 let colors = []
 
-resultText.split("").forEach(function(el,i){
-  if(i%2 == 0){
+resultText.split("").forEach(function(_,i){
+  if(i % 13 == 0){
     colors.push('red')
-  }else if(i%3 == 0){
+  }else if(i%11 == 0){
     colors.push('green')
-  }else if(i%5 == 0){
+  }else if(i%7 == 0){
     colors.push('blue')
+  }else if(i%5 == 0){
+    colors.push('yellow')
+  }else if(i%3 == 0){
+    colors.push('magenta')
+  }else if(i%2 == 0){
+    colors.push('skyblue')
   }else{
     colors.push('black')
   }
