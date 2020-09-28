@@ -1,11 +1,23 @@
-let text = document.querySelector('h1')
-let counter = 0
-let sampleText = 'This is sample text!'
+let text = document.querySelector("h1");
+let counter = 0;
+let sampleText = "This is sample text!";
 
-setInterval(function(){
-  text.innerHTML += sampleText.charAt(counter++)
-  if(counter > sampleText.length){
-    counter = 0
-    text.innerHTML = ''
+let resultText = sampleText;
+
+setInterval(function () {
+  if (counter < resultText.length) {
+    text.innerHTML += sampleText.charAt(counter++);
+  } else {
+    resultText = resultText.split("");
+    resultText.pop();
+    resultText = resultText.join("");
+    text.innerHTML = resultText;
+    counter++;
+
+    if (counter == sampleText.length * 2) {
+      resultText = sampleText;
+      counter = 0;
+      text.innerHTML = "";
+    }
   }
-},100)
+}, 100);
