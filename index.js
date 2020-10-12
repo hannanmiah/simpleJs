@@ -1,45 +1,37 @@
-let text = document.querySelector("h1");
-let counter = 0;
-let sampleText = "This is sample text!";
+let input = document.querySelector('input')
+let button = document.querySelector('button')
+let h1 = document.querySelector('h1')
+let h5 = document.querySelector('h5')
+let h6 = document.querySelector('h6')
+let text = 'This is typing text...'
+let counter = 0
 
-let resultText = sampleText;
-
-let colors = []
-
-resultText.split("").forEach(function(_,i){
-  if(i % 13 == 0){
-    colors.push('red')
-  }else if(i%11 == 0){
-    colors.push('green')
-  }else if(i%7 == 0){
-    colors.push('blue')
-  }else if(i%5 == 0){
-    colors.push('yellow')
-  }else if(i%3 == 0){
-    colors.push('magenta')
-  }else if(i%2 == 0){
-    colors.push('skyblue')
-  }else{
-    colors.push('black')
-  }
+button.addEventListener('click', function(){
+    if(input.value){
+        h6.innerHTML = `Your text is ${input.value.length} characters long!`
+        clearInput()
+        typeText()
+    }else{
+        h1.style.color = 'red'
+        h1.innerHTML = 'You must enter something!'
+    }
 })
 
-setInterval(function () {
-  if (counter < resultText.length) {
-    text.innerHTML += sampleText.charAt(counter++);
-    text.style.color = colors[counter]
-  } else {
-    resultText = resultText.split("");
-    resultText.pop();
-    resultText = resultText.join("");
-    text.innerHTML = resultText;
-    text.style.color = colors[Math.floor(counter/2)]
-    counter++;
+function typeText(){
+    let stop = setInterval(function(){
+        h1.innerHTML += text.charAt(counter++)
+        if (counter > text.length) {
+          clearInterval(stop);
+          h5.innerHTML = "Typing finished!";
+        }
+    },100)
+}
 
-    if (counter == sampleText.length * 2) {
-      resultText = sampleText;
-      counter = 0;
-      text.innerHTML = "";
-    }
-  }
-}, 500);
+function clearInput(){
+    h1.innerHTML = "";
+    h1.style.color = "black";
+    h5.innerHTML = ''
+    text = input.value;
+    input.value = "";
+    counter = 0
+}
